@@ -129,6 +129,9 @@ class _HistoryState extends State<History> {
     } catch (error) {
       print('Error updating data: $error');
     }
+    setState(() {
+      getComplain();
+    });
   }
 
   @override
@@ -177,6 +180,7 @@ class _HistoryState extends State<History> {
                           platNo = allcomplain[index].platNo;
                           comType = allcomplain[index].complainType;
                           comControll = allcomplain[index].compControll;
+                          allcomplain.removeAt(index);
                           deleteUpdData(keyUpstate[index], keyDel[index]);
                         },
                         trailing: Icon(
